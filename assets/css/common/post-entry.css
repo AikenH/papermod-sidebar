@@ -106,3 +106,25 @@
     color: var(--secondary);
     box-shadow: 0 1px 0 var(--primary);
 }
+
+/* F2 make the cover in the side on blogs page */
+.post-entry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-info {
+  display: inline-block;
+  overflow: hidden;
+  width: 90%;
+}
+
+.post-entry .entry-cover {
+  overflow: hidden;
+  padding-right: 18px;
+  height: 80%;
+  width: 40%;
+  margin-bottom: unset;
+}
+
