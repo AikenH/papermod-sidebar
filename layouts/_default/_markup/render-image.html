@@ -13,10 +13,35 @@
   {{- end -}}
 {{- end -}}
 {{- $attributes := merge .Attributes (dict "alt" .Text "src" $src "title" (.Title | transform.HTMLEscape) "loading" "lazy") -}}
+{{if .Page.Site.Params.fancybox }}
+<div class="post-img-view">
+  <a data-fancybox="gallery" href="{{ .Destination | safeURL }}">
+    <img {{- with $attributes -}}
+    {{- range $k, $v := . -}}
+      {{- if $v -}}
+        {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}  class="responsive-image" src="{{ .Destination | safeURL }}" style="display: block; margin: 0 auto;"
+      alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+  </a>
+</div>
+{{else}}
 <img
   {{- range $k, $v := $attributes -}}
     {{- if $v -}}
       {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
     {{- end -}}
-  {{- end -}}>
+  {{- end -}} style="display: block; margin: 0 auto; " class="responsive-image">
 {{- /**/ -}}
+{{ end }}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var images = document.querySelectorAll(".responsive-image");
+      var maxHeight = window.innerHeight / 2.5;
+      images.forEach(function(image) {
+          image.style.maxHeight = maxHeight + "px";
+      });
+  });
+</script>
