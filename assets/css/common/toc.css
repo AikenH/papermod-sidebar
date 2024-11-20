@@ -1,0 +1,115 @@
+/* todo: change toc font color and decide whether to set up background or not. */
+
+:root {
+    --nav-width: 1380px;
+    --article-width: 650px;
+    --toc-width: 300px;
+}
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    right: calc((var(--toc-width) + var(--gap)) * -1);
+    /* top: calc(var(--gap) * 2); */
+    top: 5px;
+    width: var(--toc-width);
+    border-radius: 20px;
+}
+
+.toc-container.wide{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(104, 152, 191, 0.254);
+    border-left: 5px dashed black;
+}
+.dark .toc-container.wide{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0,0,0,.7);
+    border-left: 5px dashed rgba(117, 221, 134, 0.603);
+}
+
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
+    /* color: rgb(255, 196, 0); */
+}
+
+.toc details summary {
+    cursor: zoom-in;
+    margin-inline-start: 20px;
+    padding: 12px 0;
+}
+
+.toc details[open] summary {
+    font-weight: 500;
+}
+
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-size: 110%;
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
+.toc .inner {
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
+
+    /*目录显示高度*/
+    max-height: 83vh;
+    overflow-y: auto;
+
+}
+
+.toc .inner::-webkit-scrollbar-thumb {  /*滚动条*/
+    background: var(--border);
+    border: 7px solid var(--theme);
+    border-radius: var(--radius);
+}
+
+.toc li ul {
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
+}
+
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+    
+}
+
+.toc li a.active,
+.toc li a:hover {
+    color: rgba(226, 37, 37, 0.795);
+}
+.dark .toc li a.active,
+.dark .toc li a:hover {
+    color: #23b06c;
+}
+
+.dark .toc li a {
+    color: #ffffff;
+}
