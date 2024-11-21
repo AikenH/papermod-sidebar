@@ -19,7 +19,46 @@
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+            Visitors: <span id="busuanzi_value_site_uv"></span>
+            Views: <span id="busuanzi_value_site_pv"></span>
+    </span> 
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const uvElement = document.getElementById('busuanzi_value_site_uv');
+        const pvElement = document.getElementById('busuanzi_value_site_pv');
+        const initialUv = 13863;
+        const initialPv = 16993;
+        if (!uvElement || !pvElement) {
+            console.error("Busuanzi elements not found.");
+            return;
+        }
+        const uvObs = new MutationObserver((mutationsList) => {
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    uvObs.disconnect();
+                    mutation.target.innerHTML = parseInt(mutation.target.innerHTML || 0) + initialUv;
+                    break;
+                }
+            }
+        });
+        const pvObs = new MutationObserver((mutationsList) => {
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    pvObs.disconnect();
+                    mutation.target.innerHTML = parseInt(mutation.target.innerHTML || 0) + initialPv;
+                    break;
+                }
+            }
+        });
+        uvObs.observe(uvElement, { childList: true });
+        pvObs.observe(pvElement, { childList: true });
+    });
+</script>
 {{- end }}
 
 {{- if (not site.Params.disableScrollToTop) }}
@@ -156,3 +195,4 @@
         readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
     })
 </script>
+
