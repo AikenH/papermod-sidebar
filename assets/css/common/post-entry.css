@@ -117,7 +117,10 @@
 .post-info {
   display: inline-block;
   overflow: hidden;
-  width: 90%;
+}
+
+.entry-cover + .post-info{
+    width: 90%;
 }
 
 .post-entry .entry-cover {
