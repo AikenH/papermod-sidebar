@@ -31,3 +31,16 @@
 
 - id: code_copied
   translation: "已复制！"
+
+- id: caution
+  translation: '危险'
+- id: important
+  translation: '重要'
+- id: note
+  translation: '笔记'
+- id: tip
+  translation: '提示'
+- id: warning
+  translation: '警告'
+- id: summary
+  translation: '总结'
