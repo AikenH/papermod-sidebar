@@ -42,7 +42,8 @@
   </div>
   {{ if .Store.Get "hasMermaid" }}
   <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    // import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/+esm'
     mermaid.initialize({ 
       startOnLoad: true,
       'theme': 'dark',
