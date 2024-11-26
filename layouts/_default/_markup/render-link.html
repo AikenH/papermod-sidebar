@@ -1,0 +1,2 @@
+<a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+<!-- ref: https://discourse.gohugo.io/t/how-to-open-plain-url-links-in-a-new-tab/25523/4 -->
