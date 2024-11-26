@@ -42,7 +42,7 @@
                         {{- $prevHeaderLevel := len (seq $prevHeaderLevel) -}}
                         {{- if gt $headerLevel $prevHeaderLevel -}}
                         {{- range seq $prevHeaderLevel (sub $headerLevel 1) -}}
-                        <ul>
+                        <ul class="header-level-{{- sub $headerLevel 1 }}">
                             {{/* the first should not be recorded */}}
                             {{- if ne $prevHeaderLevel . -}}
                             {{- $.Scratch.Add "bareul" . -}}
@@ -134,7 +134,14 @@
         }
     
         // Ensure elements is a valid NodeList
+        
         if (elements && elements.length > 0) {
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                const tocLink = document.querySelector(`.inner ul li a[href="#${id}"]`);
+                tocLink.classList.remove('read');
+            });
+            
             // Check if there is an object in the top half of the screen or keep the last item active
             activeElement = Array.from(elements).find((element) => {
                 if ((getOffsetTop(element) - scrollPosition) > 0 && 
@@ -143,7 +150,7 @@
                 }
             }) || activeElement;
     
-            elements.forEach(element => {
+            elements.forEach((element, index) => {
                 const id = encodeURI(element.getAttribute('id')).toLowerCase();
                 const tocLink = document.querySelector(`.inner ul li a[href="#${id}"]`);
                 if (element === activeElement){
@@ -159,6 +166,9 @@
                     const scrollPosition = linkOffsetTop - (containerHeight / 2) + (linkHeight / 2);
                     tocContainer.scrollTo({ top: scrollPosition, behavior: 'smooth' });
                 } else {
+                    if (getOffsetTop(element) < scrollPosition) {
+                        tocLink.classList.add('read'); // Mark as read
+                    }
                     tocLink.classList.remove('active');
                 }
             });

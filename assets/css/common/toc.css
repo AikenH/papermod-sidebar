@@ -12,6 +12,7 @@
     background: var(--entry);
     border-radius: var(--radius);
     padding: 0.4em;
+    counter-reset: toc-section;
 }
 
 .toc-container.wide {
@@ -60,7 +61,7 @@
 }
 
 .toc-container.wide .toc .inner {
-    margin: 0;
+    margin: 0 20px 0 20px;
 }
 
 .active {
@@ -90,7 +91,7 @@
 }
 
 .toc li ul {
-    margin-inline-start: calc(var(--gap) * 0.5);
+    margin-inline-start: calc(var(--gap) * 1);
     list-style-type: none;
 }
 
@@ -112,4 +113,63 @@
 
 .dark .toc li a {
     color: #ffffff;
+}
+
+.toc li{
+    list-style: circle;
+}
+
+
+/* 段落自动编号，但是会显得很花，所以还是算了  */
+/* .toc .header-level-2{
+    counter-reset: toc-subsection;
+}
+
+
+.toc .inner > ul > li::before {
+    counter-increment: toc-section;
+    content: counter(toc-section)'.';
+    margin-right: 0.4em;
+  }
+
+.toc .header-level-2 > li::before{
+    counter-increment: toc-subsection;
+    content: counter(toc-section)'.'counter(toc-subsection);
+    margin-right: 0.4em;
+} */
+
+.toc .inner > ul > li a{
+    font-size: 110%;
+}
+
+.toc .inner ul.header-level-2 li a{
+    font-size: 105%;
+}
+
+.toc .inner ul.header-level-3 li a{
+    font-size: 100%;
+}
+
+.toc .inner ul.header-level-5 li a,
+.toc .inner ul.header-level-4 li a{
+    font-size: 95%;
+}
+
+/* .toc .inner > ul > li{
+    border-bottom: 2px double black;
+} */
+
+.toc .inner > ul > li{
+    list-style: auto;
+}
+
+.toc .inner > ul > li > a{
+    text-decoration: underline rgb(0, 0, 0);
+}
+.dark .toc .inner > ul > li > a{
+    text-decoration: underline var(--primary);
+}
+
+.read {
+    color: rgb(105, 105, 105) !important;
 }
