@@ -5,6 +5,11 @@
     --article-width: 650px;
     --toc-width: 300px;
 }
+@media screen and (min-width: 2066px) {
+    :root{
+        --toc-width: 400px !important;
+    }
+}
 
 .toc {
     margin: 0 2px 40px 2px;

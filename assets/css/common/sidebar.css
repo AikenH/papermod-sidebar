@@ -2,214 +2,230 @@
 /* F2. make it side bar need modify the original header.html */
 
 /* sidebar styles */
+@media screen and (min-width: 768px) {
+  .nav{
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1224px){
+  .main{
+    margin-left: 80px;
+  }
+}
+
 .sidebar {
-    /* background-color: var(--para-color); */
-    background-color: #abc3d1bb;
-    opacity: 0.9;
-    position: fixed;
-    padding-top: 0vh;
-    padding-left: 10px;
-    height: 100%;
-    width: 80px;
-    overflow: hidden;
-    border-radius: 0px/30px 30px/30px;
-    box-shadow: 20px 40px 40px rgba(0, 0, 0, 0.3);
-    transition: width 0.5s ease 0s;
-    z-index: 999;
+  /* background-color: var(--para-color); */
+  background-color: #abc3d1bb;
+  opacity: 0.9;
+  position: fixed;
+  padding-top: 0vh;
+  padding-left: 10px;
+  height: 100%;
+  width: 80px;
+  overflow: hidden;
+  border-radius: 0px/30px 30px/30px;
+  box-shadow: 20px 40px 40px rgba(0, 0, 0, 0.3);
+  transition: width 0.5s ease 0s;
+  z-index: 999;
+}
+
+@media screen and (max-width: 768px){
+  .sidebar {
+    display: none;
   }
-  
-  .sidebar:hover {
-    width: 270px;
-    height: 100vh;
-  }
-  
-  .sidebar ul li {
-    /* relative 为后续的absolute设置相应的位置 */
-    position: relative;
-    list-style: none;
-  }
-  
-  .sidebar ul li a {
-    display: flex;
-    align-items: center;
-  
-    text-decoration: none;
-    position: relative;
-    text-wrap: nowrap;
-    /* border: 1px solid; */
-  }
-  
-  .sidebar ul li a .logo-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 60px;
-    max-height: 70px;
-    color: #333;
-    transition: 0.5s;
-    padding-left: 10px;
-    /* border: 1px solid; */
-  }
-  
-  .sidebar ul li a .logo-text {
-    /* border: 1px solid; */
-    height: 70px;
-    display: flex;
-    align-items: center;
-    font-size: 1em;
-    color: #333;
-    padding-left: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: 0.5s;
-  }
-  
-  /* logo styles */
-  .sidebar ul li.logo {
-    margin-bottom: 10vh;
-    margin-left: 0px;
-  }
-  
-  .sidebar ul li.logo .logo-icon {
-    padding-top: 10px;
-    font-size: 2em;
-  }
-  
-  .sidebar ul li.logo img {
-    max-width: 75%;
-    max-height: 75%;
-    max-height: 50px;
-    max-width: 50px;
-  
-    display: inline-block;
-  }
-  
-  .sidebar ul li.logo a .logo-text {
-    font-size: 1em;
-    padding-left: 5px;
-  }
-  
-  /* menu items */
-  .sidebar ul li .logo-icon {
-    font-size: 1.5em;
-    color: var(--clr);
-  }
-  
-  .sidebar ul li .logo-text {
-    font-size: 1.2em;
-    font-weight: 500;
-    color: var(--clr);
-  }
-  
-  .sidebar ul li:hover a .logo-icon,
-  .sidebar ul li:hover a .logo-text {
-    color: var(--bg);
-  }
-  
-  /* setting the init one for active */
-  .sidebar ul li.active a .logo-icon {
-    color: #fff;
-  }
-  
-  .sidebar ul li.active a .logo-text {
-    color: var(--bg);
-  }
-  
-  .sidebar ul li.active {
-    background-color: var(--clr);
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-  }
-  
-  /* 两个选择弧线利用active和before的组合来实现定向 */
-  .sidebar ul li.active::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 5px 5px 0 5px var(--clr);
-    background-color: transparent;
-  }
-  
-  .sidebar ul li.active::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: 5px -5px 0 5px var(--clr);
-    background-color: transparent;
-  }
-  
-  .sidebar ul li.active a .logo-icon::before {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    width: 60px;
-    background-color: var(--bg);
-    border-radius: 50%;
-    transition: 0.5s;
-  }
-  
-  .sidebar ul li:hover.active a .logo-icon::before {
-    background-color: #ffffff;
-  }
-  
-  .sidebar .status {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  #top.dark .sidebar ul li a .logo-text,
-  .list-profile.dark .sidebar ul li a .logo-text,
-  .list.dark .sidebar ul li a .logo-text {
-    color: #e16162;
-  }
-  
-  #top.dark .sidebar ul li.active a .logo-text,
-  .list-profile.dark .sidebar ul li.active a .logo-text,
-  .list.dark .sidebar ul li.active a .logo-text {
-    color: var(--bg);
-  }
-  
-  #top.dark .sidebar,
-  .list-profile.dark .sidebar,
-  .list.dark .sidebar {
-    background-color: #110c0774;
-    /* background-color: #00000053; */
-  }
-  
-  #top.dark .sidebar ul li a .logo-icon,
-  .list.dark .sidebar ul li a .logo-icon,
-  .list-profile.dark .sidebar ul li a .logo-icon,
-  #sun {
-    color: #f9bc60;
-  }
-  
-  /* align the theme-toggle size & position to sidebar */
-  .sidebar .logo-switches {
-    position: absolute;
-    bottom: 0;
-  }
-  
-  button#theme-toggle {
-    font-size: 1.1em;
-    padding-left: 12px;
-  }
-  
-  /* change color for sidebar */
-  :root {
-    --clr: #141e15;
-    --bga: #004643;
-    --btm-color: #f9bc60;
-    --para-color: #abd1c6;
-    --font-color: #fffffe;
-    --stroct-color: #001e1d;
-  }
-  
+}
+
+.sidebar:hover {
+  width: 270px;
+  height: 100vh;
+}
+
+.sidebar ul li {
+  /* relative 为后续的absolute设置相应的位置 */
+  position: relative;
+  list-style: none;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  position: relative;
+  text-wrap: nowrap;
+  /* border: 1px solid; */
+}
+
+.sidebar ul li a .logo-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 60px;
+  max-height: 70px;
+  color: #333;
+  transition: 0.5s;
+  padding-left: 10px;
+  /* border: 1px solid; */
+}
+
+.sidebar ul li a .logo-text {
+  /* border: 1px solid; */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #333;
+  padding-left: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+}
+
+/* logo styles */
+.sidebar ul li.logo {
+  margin-bottom: 10vh;
+  margin-left: 0px;
+}
+
+.sidebar ul li.logo .logo-icon {
+  padding-top: 10px;
+  font-size: 2em;
+}
+
+.sidebar ul li.logo img {
+  max-width: 75%;
+  max-height: 75%;
+  max-height: 50px;
+  max-width: 50px;
+
+  display: inline-block;
+}
+
+.sidebar ul li.logo a .logo-text {
+  font-size: 1em;
+  padding-left: 5px;
+}
+
+/* menu items */
+.sidebar ul li .logo-icon {
+  font-size: 1.5em;
+  color: var(--clr);
+}
+
+.sidebar ul li .logo-text {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--clr);
+}
+
+.sidebar ul li:hover a .logo-icon,
+.sidebar ul li:hover a .logo-text {
+  color: var(--bg);
+}
+
+/* setting the init one for active */
+.sidebar ul li.active a .logo-icon {
+  color: #fff;
+}
+
+.sidebar ul li.active a .logo-text {
+  color: var(--bg);
+}
+
+.sidebar ul li.active {
+  background-color: var(--clr);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+/* 两个选择弧线利用active和before的组合来实现定向 */
+.sidebar ul li.active::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 0 5px var(--clr);
+  background-color: transparent;
+}
+
+.sidebar ul li.active::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 5px -5px 0 5px var(--clr);
+  background-color: transparent;
+}
+
+.sidebar ul li.active a .logo-icon::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  width: 60px;
+  background-color: var(--bg);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.sidebar ul li:hover.active a .logo-icon::before {
+  background-color: #ffffff;
+}
+
+.sidebar .status {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#top.dark .sidebar ul li a .logo-text,
+.list-profile.dark .sidebar ul li a .logo-text,
+.list.dark .sidebar ul li a .logo-text {
+  color: #e16162;
+}
+
+#top.dark .sidebar ul li.active a .logo-text,
+.list-profile.dark .sidebar ul li.active a .logo-text,
+.list.dark .sidebar ul li.active a .logo-text {
+  color: var(--bg);
+}
+
+#top.dark .sidebar,
+.list-profile.dark .sidebar,
+.list.dark .sidebar {
+  background-color: #110c0774;
+  /* background-color: #00000053; */
+}
+
+#top.dark .sidebar ul li a .logo-icon,
+.list.dark .sidebar ul li a .logo-icon,
+.list-profile.dark .sidebar ul li a .logo-icon,
+#sun {
+  color: #f9bc60;
+}
+
+/* align the theme-toggle size & position to sidebar */
+.sidebar .logo-switches {
+  position: absolute;
+  bottom: 0;
+}
+
+button#theme-toggle {
+  font-size: 1.1em;
+  padding-left: 12px;
+}
+
+/* change color for sidebar */
+:root {
+  --clr: #141e15;
+  --bga: #004643;
+  --btm-color: #f9bc60;
+  --para-color: #abd1c6;
+  --font-color: #fffffe;
+  --stroct-color: #001e1d;
+}
