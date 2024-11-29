@@ -1,5 +1,5 @@
-<script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
-<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
+<script type="module" src="https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
+<script nomodule src="https://cdn.jsdmirror.com/npm/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
 {{- /* theme-toggle is enabled */}}
 {{- if (not site.Params.disableThemeToggle) }}
 {{- /* theme is light */}}
@@ -50,19 +50,19 @@
                 {{- if site.Params.label.icon }}
                 {{- $img := resources.Get site.Params.label.icon }}
                 {{- if $img }}
-                    {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
-                    {{- if hugo.IsExtended -}}
-                        {{- $processableFormats = $processableFormats | append "webp" -}}
-                    {{- end -}}
-                    {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-                    {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
-                        {{- if site.Params.label.iconHeight }}
-                            {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
-                        {{ else }}
-                            {{- $img = $img.Resize "x30" }}
-                        {{- end }}
-                    {{- end }}
-                    <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
+                {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
+                {{- if hugo.IsExtended -}}
+                {{- $processableFormats = $processableFormats | append "webp" -}}
+                {{- end -}}
+                {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
+                {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
+                {{- if site.Params.label.iconHeight }}
+                {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
+                {{ else }}
+                {{- $img = $img.Resize "x30" }}
+                {{- end }}
+                {{- end }}
+                <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
                         height="{{- site.Params.label.iconHeight | default "30" -}}">
                 {{- else }}
                 <img src="{{- site.Params.label.icon | absURL -}}" alt="" aria-label="logo"
@@ -73,53 +73,53 @@
                 {{- end -}}
                 {{- $label_text -}}
             </a>
-            {{- end }}
-            <div class="logo-switches">
-                {{- if (not site.Params.disableThemeToggle) }}
-                <button id="theme-toggle-nav" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                {{- end }}
+                    {{- end }}
+                    <div class="logo-switches">
+                        {{- if (not site.Params.disableThemeToggle) }}
+                        <button id="theme-toggle-nav" accesskey="t" title="(Alt + T)">
+                            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </button>
+                        {{- end }}
 
-                {{- $lang := .Lang}}
-                {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
-                {{- with site.Home.Translations }}
-                <ul class="lang-switch">
-                    {{- if $separator }}<li>|</li>{{ end }}
-                    {{- range . -}}
-                    {{- if ne $lang .Lang }}
-                    <li>
+                        {{- $lang := .Lang}}
+                        {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
+                        {{- with site.Home.Translations }}
+                        <ul class="lang-switch">
+                            {{- if $separator }}<li>|</li>{{ end }}
+                            {{- range . -}}
+                            {{- if ne $lang .Lang }}
+                            <li>
                         <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | title) }}"
-                            aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
-                            {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-                            {{- .Language.LanguageName | emojify -}}
-                            {{- else }}
-                            {{- .Lang | title -}}
+                                    aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
+                                    {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
+                                    {{- .Language.LanguageName | emojify -}}
+                                    {{- else }}
+                                    {{- .Lang | title -}}
+                                    {{- end -}}
+                                </a>
+                            </li>
                             {{- end -}}
-                        </a>
-                    </li>
-                    {{- end -}}
-                    {{- end}}
-                </ul>
-                {{- end }}
-            </div>
+                            {{- end}}
+                        </ul>
+                        {{- end }}
+                    </div>
         </div>
         {{- $currentPage := . }}
         <ul id="menu">
@@ -156,8 +156,10 @@
     {{- $currentPage := . }}
 </header>
 
-{{- $iconMap := dict "home" "home-outline" "posts" "newspaper-outline" "tags" "pricetags-outline" "categories" "grid-outline" "archives" "folder-outline" "search" "search" "about" "person"}}
-{{- $bgColorMap := dict "home" "#f44336" "posts" "#b145e9" "tags" "#0f93c7" "categories" "#ffa117" "archives" "#0fc70f" "search" "#15c095" "about" "#d16111"}}
+{{- $iconMap := dict "home" "home-outline" "posts" "newspaper-outline" "tags" "pricetags-outline" "categories"
+"grid-outline" "archives" "folder-outline" "search" "search" "about" "person"}}
+{{- $bgColorMap := dict "home" "#f44336" "posts" "#b145e9" "tags" "#0f93c7" "categories" "#ffa117" "archives" "#0fc70f"
+"search" "#15c095" "about" "#d16111"}}
 <div class="sidebar">
     <ul>
         <li class="logo" style="--bg: #333;">
@@ -176,11 +178,11 @@
             <li class="{{- if eq $menu_item_url $page_url }}active{{- end }}" style="--bg: {{ $bgColor }};">
                 <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
                 {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                    
+
                     <div class="logo-icon">
                         <ion-icon name="{{ $iconName }}"></ion-icon>
                     </div>
-                    
+
                     <div class="logo-text">{{ .Name }}</div>
                 </a>
             </li>
@@ -208,18 +210,29 @@
 <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.css -->
 <!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.js -->
 
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css" /> -->
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css"
+  href="https://cdn.jsdmirror.com/npm/sakana-widget@2.7.0/lib/sakana.min.css"
 />
 <div id="sakana-widget"></div>
 <script>
-  function initSakanaWidget() {
-    new SakanaWidget({ character : 'chisato', controls : true }).setState({ t: 0.8, i: 0.005, s: 0.5, d: 0.999, t:0.5, w:0.05 }).mount('#sakana-widget');  }
+    function initSakanaWidget() {
+        const ronSang = SakanaWidget.getCharacter('chisato');
+        ronSang.initialState = { 
+            ...ronSang.initialState,
+            controls: false,
+            t: 0.8, i: 0.001, s: 1, d: 0.999, t: 0.5, w: 0.05,
+        };
+        ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/ron3.png';
+        // ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/%E4%B8%BB%E9%A2%98%204.png';
+        SakanaWidget.registerCharacter('ronSang', ronSang);
+        new SakanaWidget({ character: 'ronSang' }).mount('#sakana-widget');
+    }
 </script>
-<script
-  async
+<script 
+  async 
   onload="initSakanaWidget()"
-  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js"
+  src="https://cdn.jsdmirror.com/npm/sakana-widget@2.7.0/lib/sakana.min.js"
 ></script>
 {{- end -}}
