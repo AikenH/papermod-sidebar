@@ -134,7 +134,7 @@
         }
     
         // Ensure elements is a valid NodeList
-        
+
         if (elements && elements.length > 0) {
             elements.forEach(element => {
                 const id = encodeURI(element.getAttribute('id')).toLowerCase();
@@ -191,6 +191,11 @@
     
     function getOffsetTop(element) {
         if (!element.getClientRects().length) {
+            if (!document.querySelector('.hugo-encryptor-prompt') && elements.length != 0) {
+                // Re-query the elements if the class is not found
+                elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+                console.log('Elements re-queried:', elements);
+            }
             return 0;
         }
         let rect = element.getBoundingClientRect();
