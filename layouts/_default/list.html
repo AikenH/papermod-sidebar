@@ -120,7 +120,7 @@
     {{- if $paginator.HasPrev }}
     <a class="last-icon" href="{{ $paginator.First.URL | absURL }}">
       <!-- <ion-icon name="play-back-circle-outline"></ion-icon> -->
-      <span><<<</span>
+      <span><<</span>
     </a>
     <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
       «&nbsp;{{ i18n "prev_page" }}&nbsp;
@@ -138,7 +138,7 @@
     </a>
     <a class="last-icon" href="{{ $paginator.Last.URL | absURL }}">
       <!-- <ion-icon name="play-forward-circle-outline"></ion-icon> -->
-       <span>>>></span>
+       <span>>></span>
     </a>
     {{- end }}
   </nav>

@@ -1,20 +1,27 @@
 #searchbox input {
-    padding: 4px 10px;
+    padding: 10px 1rem;
     width: 100%;
     color: var(--primary);
     font-weight: bold;
-    border: 2px solid var(--tertiary);
-    border-radius: var(--radius);
+    /* border: 2px solid var(--tertiary); */
+    border-radius: 20px;
+    transition: 0.25s;
+    outline: 4px solid #FEBF00;
+    background-color: #e2e2e2;
+    border: 0;
+    outline-offset: 3px;
 }
 
 #searchbox input:focus {
     border-color: var(--secondary);
+    outline-offset: 7px;
+    background-color: #fff
 }
 
 #searchResults li {
     list-style: none;
-    border-radius: var(--radius);
-    padding: 10px;
+    border-radius: 20px;
+    padding: 20px;
     margin: 10px 0;
     position: relative;
     font-weight: 500;
