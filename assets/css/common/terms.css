@@ -8,11 +8,13 @@
     display: block;
     padding: 3px 10px;
     background: var(--tertiary);
-    border-radius: 6px;
-    transition: transform 0.1s;
+    border-radius: 0px 0px 0px 0px;
+    transition: background 0.5s ease transform 0.2s;
+    border-left: 3px solid rgb(167, 86, 54);
 }
 
+.terms-tags a:hover,
 .terms-tags a:active {
-    background: var(--tertiary);
-    transform: scale(0.96);
+    background: rgb(167, 86, 54);
+    transform: scale(0.9);
 }
