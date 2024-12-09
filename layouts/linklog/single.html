@@ -1,0 +1,15 @@
+{{- define "main" }}
+
+{{- if .Params.url }}
+  <meta http-equiv="refresh" content="0; url=https://{{ .Params.url }}">
+  <script>
+    window.location.href = "https://{{ .Params.url }}";
+  </script>
+  <title>Redirecting...</title>
+  <p>If you are not redirected, <a href="https://{{ .Params.url }}">click here</a>.</p>
+{{- else }}
+  <h1>Link not found</h1>
+  <p>The link you are looking for does not exist.</p>
+{{- end }}
+
+{{- end }}{{/* end main */}}

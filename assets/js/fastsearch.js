@@ -88,8 +88,29 @@ sInput.onkeyup = function (e) {
             let resultSet = ''; // our results bucket
 
             for (let item in results) {
-                resultSet += `<li class="post-entry"><header class="entry-header">${results[item].item.title}&nbsp;»</header>` +
-                    `<a href="${results[item].item.permalink}" aria-label="${results[item].item.title}"></a></li>`
+                const permalink = results[item].item.permalink; // Get the permalink
+                const trimmedPermalink = permalink.endsWith('/') ? permalink.slice(0, -1) : permalink;
+                const lastSegment = trimmedPermalink.substring(trimmedPermalink.lastIndexOf('/') + 1); // Get the last segment
+                console.log("Permalink:", permalink); // Log the permalink
+
+                console.log("Last Segment:", lastSegment); // Log the last segment
+                // Check if the last segment contains a period
+                const jumpIcon = lastSegment.includes('.') ? '<span class="jump-icon"><ion-icon name="link-outline"></ion-icon></span>' : '';
+                
+                if (lastSegment.includes('.'))
+                {
+                    resultSet += `<li class="post-entry">
+                        <header class="entry-header" id="search-link">${jumpIcon}${results[item].item.title}&nbsp;»</header>
+                        <a href="${permalink}" aria-label="${results[item].item.title}"></a>
+                    </li>`;
+                }
+                else
+                {
+                    resultSet += `<li class="post-entry">
+                        <header class="entry-header">${jumpIcon}${results[item].item.title}&nbsp;»</header>
+                        <a href="${permalink}" aria-label="${results[item].item.title}"></a>
+                    </li>`;
+                }
             }
 
             resList.innerHTML = resultSet;
