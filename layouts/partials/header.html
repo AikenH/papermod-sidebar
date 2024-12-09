@@ -128,7 +128,7 @@
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
 
-            {{- if or (eq .URL "/tags/") (eq .URL "/categories/") (eq .URL "/about/") (eq .URL "/posts/")}}
+            {{- if or (eq .URL "/tags/") (eq .URL "/categories/") (eq .URL "/about/") (eq .URL "/posts/") (eq .URL "/linklog/")}}
             {{- continue }}
             {{- end }}
 
@@ -157,9 +157,9 @@
 </header>
 
 {{- $iconMap := dict "home" "home-outline" "posts" "newspaper-outline" "tags" "pricetags-outline" "categories"
-"grid-outline" "archives" "folder-outline" "search" "search" "about" "person"}}
+"grid-outline" "archives" "folder-outline" "search" "search" "about" "person" "linklog" "link"}}
 {{- $bgColorMap := dict "home" "#f44336" "posts" "#b145e9" "tags" "#0f93c7" "categories" "#ffa117" "archives" "#0fc70f"
-"search" "#15c095" "about" "#d16111"}}
+"search" "#15c095" "about" "#d16111" "linklog" "#0fc70f"}}
 <div class="sidebar">
     <ul>
         <li class="logo" style="--bg: #333;">
