@@ -31,7 +31,12 @@
       {{- range .Pages }}
       <div class="archive-entry">
         <h3 class="archive-entry-title">
-          <a href="https://{{ .Params.url }}" target="_blank" rel="noopener noreferrer">{{ .Title }}</a> <!-- Prepend the protocol -->
+          {{- if .Params.url}}
+            <span class="jump-icon"><ion-icon name="link-outline"></ion-icon></span>
+            <a href="https://{{ .Params.url }}" target="_blank" rel="noopener noreferrer">{{ .Title }}</a> <!-- Prepend the protocol -->
+          {{- else}}
+            <a href="{{ .Permalink }}" >转) {{ .Title }}</a> <!-- Prepend the protocol -->
+          {{- end}}
         </h3>
         {{- if .Params.description }} <!-- Check if description exists -->
         <div class="archive-entry-description">

@@ -89,19 +89,21 @@ sInput.onkeyup = function (e) {
 
             for (let item in results) {
                 const permalink = results[item].item.permalink; // Get the permalink
-                const trimmedPermalink = permalink.endsWith('/') ? permalink.slice(0, -1) : permalink;
-                const lastSegment = trimmedPermalink.substring(trimmedPermalink.lastIndexOf('/') + 1); // Get the last segment
+                
+                const url = new URL(permalink)
+                const pathAfterDomain = url.pathname;
+
                 console.log("Permalink:", permalink); // Log the permalink
 
-                console.log("Last Segment:", lastSegment); // Log the last segment
+                console.log("Last Segment:", pathAfterDomain); // Log the last segment
                 // Check if the last segment contains a period
-                const jumpIcon = lastSegment.includes('.') ? '<span class="jump-icon"><ion-icon name="link-outline"></ion-icon></span>' : '';
+                const jumpIcon = pathAfterDomain.includes('.') ? '<span class="jump-icon"><ion-icon name="link-outline"></ion-icon></span>' : '';
                 
-                if (lastSegment.includes('.'))
+                if (pathAfterDomain.includes('.'))
                 {
                     resultSet += `<li class="post-entry">
                         <header class="entry-header" id="search-link">${jumpIcon}${results[item].item.title}&nbsp;»</header>
-                        <a href="${permalink}" aria-label="${results[item].item.title}"></a>
+                        <a href="${permalink}" target="_blank" rel="noopener noreferrer" aria-label="${results[item].item.title}"></a>
                     </li>`;
                 }
                 else
