@@ -254,8 +254,8 @@
     // Function to enforce a minimum margin
     const enforceMargin = () => {
         const currentMargin = parseInt(window.getComputedStyle(element).marginLeft, 10);
-        // console.log("currentMargin", currentMargin);
-        if ( currentMargin > 0 && currentMargin < 80) {
+        // console.log("currentMargin", isNaN(currentMargin), currentMargin);
+        if ( currentMargin < 80) {
             element.style.marginLeft = '80px'; // Enforce the minimum margin if it's less than 80 or NaN
         }
         // If the margin is 80 or more, do nothing and keep the current margin
@@ -269,15 +269,13 @@
         element.style.marginLeft = 'auto';
 
         // Call enforceMargin to ensure it's at least 80px
-        console.log(windowWidth);
+        // console.log(windowWidth);
         if (windowWidth >= 768)
         {
           enforceMargin();
         }
     };
 
-    // Call the function once on page load
-    adjustMarginOnResize();
 
     // Debounce mechanism to improve performance during resize
     let resizeTimeout;
