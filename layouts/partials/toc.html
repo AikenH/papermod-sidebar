@@ -180,7 +180,7 @@
     const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
     
     function checkTocPosition() {
-        const width = document.body.scrollWidth;
+        const width = document.body.clientWidth;
     
         if (width - main - (toc * 2) - (gap * 4) > 0) {
             document.getElementById("toc-container").classList.add("wide");

@@ -247,4 +247,44 @@
   onload="initSakanaWidget()"
   src="https://cdn.jsdmirror.com/npm/sakana-widget@2.7.0/lib/sakana.min.js"
 ></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const element = document.querySelector('.main');
+
+    // Function to enforce a minimum margin
+    const enforceMargin = () => {
+        const currentMargin = parseInt(window.getComputedStyle(element).marginLeft, 10);
+        if (currentMargin < 80) {
+            element.style.marginLeft = '80px'; // Enforce the minimum margin if it's less than 80
+        } 
+        // If the margin is 80 or more, do nothing and keep the current margin
+    };
+
+    // Function to adjust the margin based on window width
+    const adjustMarginOnResize = () => {
+        const windowWidth = window.innerWidth;
+
+        // Set margin-left to auto to allow browser to set it initially
+        element.style.marginLeft = 'auto';
+
+        // Call enforceMargin to ensure it's at least 80px
+        console.log(windowWidth);
+        if (windowWidth >= 768)
+        {
+          enforceMargin();
+        }
+    };
+
+    // Call the function once on page load
+    adjustMarginOnResize();
+
+    // Debounce mechanism to improve performance during resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustMarginOnResize, 100); // Adjust after 100ms of inactivity
+    });
+});
+
+</script>
 {{- end -}}
