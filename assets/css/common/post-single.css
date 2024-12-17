@@ -154,7 +154,7 @@
 }
 
 .post-content .highlight:not(table) {
-    margin: 10px auto;
+    margin: 0px auto 10px auto;
     background: var(--code-block-bg) !important;
     border-radius: var(--radius);
     direction: ltr;
@@ -406,4 +406,38 @@ h1>a>svg {
 img.in-text {
     display: inline;
     margin: auto;
+}
+
+.code-block {
+    background: var(--code-block-bg);
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    position: relative;
+    /* padding: 2px; */
+    margin: 8px 0px;
+}
+
+.code-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.602);
+    cursor: pointer;
+
+}
+
+.code-title span {
+    letter-spacing: 1.57px;
+    color: rgb(212 212 212);
+    /* width: 90%; */
+    /* align-items: center; */
+    font-size: 1rem;
+    padding: 5px;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+.code-has-hidden-child {
+    border: 1px solid salmon;
 }

@@ -48,18 +48,21 @@ pre {
 }
 
 .copy-code {
-    display: none;
+    /* display: none; */
     position: absolute;
-    top: 4px;
-    right: 4px;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(78, 78, 78, 0.8);
-    border-radius: var(--radius);
-    padding: 0 5px;
-    font-size: 14px;
+    top: 0px;
+    right: 0px;
+    color: rgba(255, 255, 255, 0.482);
+    /* background: rgba(5, 179, 124, 0.431); */
+    border-radius: 0px;
+    padding: 0 20px;
+    font-size: 1rem;
     user-select: none;
 }
-
+.copy-code:hover{
+    transform: scale(1.1);
+    font-weight: bold;
+}
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;

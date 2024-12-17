@@ -147,8 +147,8 @@
 {{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Param "ShowCodeCopyButtons")) }}
 <script>
     document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
+        const container = codeblock.parentNode.parentNode.parentNode.parentNode;
+        console.log(container);
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
         copybutton.innerHTML = '{{- i18n "code_copy" | default "copy" }}';
@@ -179,7 +179,8 @@
             selection.removeRange(range);
         });
 
-        if (container.classList.contains("highlight")) {
+        if (container.classList.contains("code-block")) {
+            console.log("active");
             container.appendChild(copybutton);
         } else if (container.parentNode.firstChild == container) {
             // td containing LineNos
