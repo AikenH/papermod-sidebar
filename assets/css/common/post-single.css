@@ -420,7 +420,7 @@ img.in-text {
 .code-title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.602);
     cursor: pointer;
@@ -440,4 +440,8 @@ img.in-text {
 
 .code-has-hidden-child {
     border: 1px solid salmon;
+}
+
+.code-block-open{
+    margin-top: 5px;
 }
