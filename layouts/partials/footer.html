@@ -4,7 +4,18 @@
         {{- if site.Copyright }}
         <span>{{ site.Copyright | markdownify }}</span>
         {{- else }}
+        
         <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+        <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            Licensed under
+            <a
+              href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1"
+              target="_blank"
+              rel="license noopener noreferrer"
+              style="display:inline-block;"
+              >CC BY-NC 4.0 </a
+            ></span
+        >
         {{- end }}
         {{- print " · "}}
     {{- end }}
@@ -148,7 +159,7 @@
 <script>
     document.querySelectorAll('pre > code').forEach((codeblock) => {
         const container = codeblock.parentNode.parentNode.parentNode.parentNode;
-        console.log(container);
+        // console.log(container);
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
         copybutton.innerHTML = '{{- i18n "code_copy" | default "copy" }}';
@@ -180,7 +191,7 @@
         });
 
         if (container.classList.contains("code-block")) {
-            console.log("active");
+            // console.log("active");
             container.appendChild(copybutton);
         } else if (container.parentNode.firstChild == container) {
             // td containing LineNos
