@@ -1,0 +1,13 @@
+/*
+动态隐藏子级目录 
+ref: https://blog.csdn.net/DuChongYY/article/details/136244762
+todo: add active js for toc li.
+*/
+
+.toc-container.wide li>ul {
+    display: none;
+}
+
+.toc-container.wide li:has(a.active) ul{
+    display: inherit !important;
+} 

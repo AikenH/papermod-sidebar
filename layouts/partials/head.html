@@ -146,6 +146,12 @@
     {{- end }}
 </noscript>
 
+{{ if .Page.Site.Params.autofoldtoc }}
+    {{ $styles := resources.Get "css/autofoldtoc.css.tmpl" | resources.ExecuteAsTemplate "autofoldtoc.css" . }}
+    <style>
+        {{ $styles.Content | safeCSS }}
+    </style>
+{{ end }}
 {{if .Page.Site.Params.fancybox }}
 <script src="https://cdn.jsdmirror.com/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdmirror.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />

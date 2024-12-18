@@ -166,7 +166,12 @@
 } */
 
 .toc .inner > ul > li{
-    list-style: auto;
+    list-style: none;
+    counter-increment: toc-section;
+}
+.toc .inner > ul > li::before{
+    content: counter(toc-section) '.';
+    margin-right: 0.4em;
 }
 
 .toc .inner > ul > li > a{
