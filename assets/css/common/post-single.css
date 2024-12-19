@@ -442,6 +442,17 @@ img.in-text {
     border: 1px solid salmon;
 }
 
-.code-block-open{
+.code-block-open,
+.code-block-close{
     margin-top: 5px;
+}
+
+.code-has-hidden-child .code-block-open,
+.code-block-close{
+    
+    display: none;
+}
+.code-has-hidden-child .code-block-close,
+.code-block-open{
+    display: inline;
 }
