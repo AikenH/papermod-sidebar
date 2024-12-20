@@ -218,18 +218,6 @@
 <div id="sakana-widget"></div>
 <script>
     function initSakanaWidget() {
-        const ronSang = SakanaWidget.getCharacter('chisato');
-        ronSang.initialState = { 
-            ...ronSang.initialState,
-            controls: false,
-            t: 0.8, i: 0.002, s: 1, d: 0.999, t: 0.5, w: 0.05,
-        };
-        // ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/ron3.png';
-        // ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/%E4%B8%BB%E9%A2%98%204.png';
-        ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/%E5%B7%B2%E7%A7%BB%E9%99%A4%E8%83%8C%E6%99%AF%E7%9A%84Xnip2024-11-30_00-47-03.png';
-        SakanaWidget.registerCharacter('ronSang', ronSang);
-        new SakanaWidget({ character: 'ronSang' }).mount('#sakana-widget');
-
         const xinxin = SakanaWidget.getCharacter("chisato");
         xinxin.initialState = {
             ...xinxin.initialState,
@@ -240,6 +228,19 @@
         // xinxin.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/xinxin2.png';
         SakanaWidget.registerCharacter('xinxin', xinxin);
         new SakanaWidget({character: 'xinxin'}).mount('#sakana-widget');
+
+        const ronSang = SakanaWidget.getCharacter('chisato');
+        ronSang.initialState = { 
+            ...ronSang.initialState,
+            controls: false,
+            t: 0.8, i: 0.002, s: 1, d: 0.999, t: 0.5, w: 0.05,
+        };
+        // ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/ron3.png';
+        // ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/%E4%B8%BB%E9%A2%98%204.png';
+        // ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/%E5%B7%B2%E7%A7%BB%E9%99%A4%E8%83%8C%E6%99%AF%E7%9A%84Xnip2024-11-30_00-47-03.png';
+        ronSang.image = 'https://picture-bed-001-1310572365.cos.ap-guangzhou.myqcloud.com/mac/%E5%B7%B2%E7%A7%BB%E9%99%A4%E8%83%8C%E6%99%AF%E7%9A%84snipaste_2024-12-21_01-10-03.png'
+        SakanaWidget.registerCharacter('ronSang', ronSang);
+        new SakanaWidget({ character: 'ronSang' }).mount('#sakana-widget');
     }
 </script>
 <script 
