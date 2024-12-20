@@ -146,7 +146,7 @@
     {{- end }}
 </noscript>
 
-{{ if .Page.Site.Params.autofoldtoc }}
+{{ if or .Params.autofoldtoc .Page.Site.Params.autofoldtoc }}
     {{ $styles := resources.Get "css/autofoldtoc.css.tmpl" | resources.ExecuteAsTemplate "autofoldtoc.css" . }}
     <style>
         {{ $styles.Content | safeCSS }}
