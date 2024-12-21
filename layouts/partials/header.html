@@ -281,8 +281,22 @@
     // Debounce mechanism to improve performance during resize
     let resizeTimeout;
     window.addEventListener('resize', () => {
+        console.log("ressize");
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(adjustMarginOnResize, 100); // Adjust after 100ms of inactivity
+    });
+
+    window.addEventListener('pageshow', () => {
+        console.log("pageshow");
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustMarginOnResize, 100); // Adjust after 100ms of inactivity
+    });
+    
+    // 浏览器历史记录发生变化（如后退或前进）
+    window.addEventListener('popstate', () => {
+        // console.log("popstate");
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(adjustMarginOnResize, 100); // 在不活动100毫秒后调整
     });
 });
 
